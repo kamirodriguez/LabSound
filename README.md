@@ -2,7 +2,7 @@ Qué es?
 LabSound es un laboratorio virtual que permite comparar cómo distintos materiales reducen la amplitud del sonido registrado.
 
 Cómo acceder?
-[Mediante este link](https://kamirodriguez.github.io/LabSound/).
+[Link LabSound](https://kamirodriguez.github.io/LabSound/).
 
 Cómo se usa?
 1. Primero presiona *Comenzar experimento* y elige tu predicción.
