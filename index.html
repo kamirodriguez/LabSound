@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabSound | Laboratorio virtual</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <main class="contenedor">
+
+        <!-- Inicio -->
+        <section id="pantallaInicio">
+            <div class="icono-portada" aria-hidden="true">🔊</div>
+            <h1>LabSound</h1>
+            <p class="subtitulo">
+                Laboratorio virtual de reducción sonora
+            </p>
+            <p>
+                Escucha cinco mediciones por material, observa sus amplitudes RMS
+                y compara los resultados experimentales.
+            </p>
+            <button id="botonComenzar">
+                Comenzar experimento →
+            </button>
+            <p class="texto-pequeno">
+                Experimento con 25 grabaciones: referencia, espuma, cartón, madera y tela.
+            </p>
+        </section>
+
+        <!-- Predicción -->
+        <section id="pantallaPrediccion" class="oculto">
+            <h2>🤔 Antes de comenzar...</h2>
+            <p>
+                ¿Cuál material crees que reducirá más la amplitud del sonido?
+            </p>
+            <div class="predicciones">
+                <button class="boton-prediccion" data-material="Espuma">
+                    🟦 Espuma
+                </button>
+                <button class="boton-prediccion" data-material="Cartón">
+                    🟫 Cartón
+                </button>
+                <button class="boton-prediccion" data-material="Madera">
+                    🪵 Madera
+                </button>
+                <button class="boton-prediccion" data-material="Tela">
+                    🧶 Tela
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Materiales -->
+        <section id="pantallaMateriales" class="oculto">
+
+            <p class="etiqueta">Paso 1 de 3</p>
+
+            <h2>Selecciona una condición</h2>
+
+            <p>
+                Todos los materiales se comparan con la misma referencia sin material.
+            </p>
+
+            <div class="materiales">
+
+                <button class="boton-material" data-material="referencia">
+                    📢
+                    <span>Sin material</span>
+                    <small>Referencia</small>
+                </button>
+
+                <button class="boton-material" data-material="espuma">
+                    🟦
+                    <span>Espuma</span>
+                </button>
+
+                <button class="boton-material" data-material="carton">
+                    🟫
+                    <span>Cartón corrugado</span>
+                </button>
+
+                <button class="boton-material" data-material="madera">
+                    🪵
+                    <span>Madera</span>
+                </button>
+
+                <button class="boton-material" data-material="tela">
+                    🧶
+                    <span>Tela</span>
+                </button>
+
+            </div>
+
+            <button id="volverInicio" class="boton-secundario">
+                ← Volver al inicio
+            </button>
+
+        </section>
+
+        <!-- Ensayos -->
+        <section id="pantallaEnsayos" class="oculto">
+
+            <p class="etiqueta">Paso 2 de 3</p>
+
+            <h2 id="tituloEnsayo">Material</h2>
+
+            <p id="contadorEnsayo" class="contador">
+                Ensayo 1 de 5
+            </p>
+
+            <p>
+                Escucha la grabación y observa la amplitud RMS registrada.
+            </p>
+
+            <div class="tarjeta-medicion">
+
+                <p class="metrica-label">
+                    Amplitud RMS
+                </p>
+
+                <p id="resultadoEnsayo" class="metrica-valor">
+                    —
+                </p>
+
+                <p class="texto-pequeno">
+                    El RMS representa una medida de la amplitud promedio de la señal de audio.
+                    Un valor menor indica una menor amplitud registrada en este experimento.
+                </p>
+
+                <p class="texto-pequeno">
+                    Valor digital relativo, sin unidad acústica calibrada
+                </p>
+
+            </div>
+
+            <button id="botonReproducir">
+                ▶️ Reproducir medición
+            </button>
+
+            <p id="estadoAudio" class="texto-pequeno" aria-live="polite"></p>
+
+            <button id="botonSiguiente" class="boton-alternativo">
+                Siguiente ensayo →
+            </button>
+
+            <button id="volverMateriales" class="boton-secundario">
+                ← Elegir otro material
+            </button>
+
+        </section>
+
+        <!-- Resultados -->
+        <section id="pantallaResultados" class="oculto">
+
+            <p class="etiqueta">Paso 3 de 3</p>
+
+            <h2 id="tituloResultados">Resultados</h2>
+
+            <p>
+                Se analizaron los mismos 12 segundos de cada grabación original.
+            </p>
+
+            <div class="estadisticas">
+
+                <div class="tarjeta-medicion">
+                    <p class="metrica-label">Promedio RMS</p>
+                    <p id="promedioRMS" class="metrica-valor">—</p>
+                </div>
+
+                <div class="tarjeta-medicion">
+                    <p class="metrica-label">Desviación estándar</p>
+                    <p id="desviacionRMS" class="metrica-valor">—</p>
+                </div>
+
+                <div class="tarjeta-medicion">
+                    <p class="metrica-label">Ensayos</p>
+                    <p id="numeroEnsayos" class="metrica-valor">5</p>
+                </div>
+
+                <div class="tarjeta-medicion">
+                    <p class="metrica-label">
+                        Cambio relativo frente a la referencia
+                    </p>
+                    <p id="reduccionRMS" class="metrica-valor">—</p>
+                </div>
+
+            </div>
+
+            <p class="advertencia">
+                Estos valores describen amplitudes digitales grabadas en este experimento;
+                no equivalen a aislamiento acústico certificado ni a decibeles medidos con sonómetro.
+            </p>
+
+            <button id="botonOtroMaterial">
+                Probar otro material →
+            </button>
+
+            <p id="errorGrafico" class="texto-pequeno" aria-live="polite"></p>
+
+        </section>
+
+        <!-- Resultados finales -->
+        <section id="pantallaResultadosFinales" class="oculto">
+
+            <p class="etiqueta">
+                Experimento terminado
+            </p>
+
+            <h2>🏆 Resultados finales</h2>
+
+            <p>
+                Ahora podemos comparar los cuatro materiales
+                a partir de sus amplitudes RMS promedio.
+            </p>
+
+            <div class="tarjeta-medicion">
+                <p class="metrica-label">
+                    Material con mayor reducción
+                </p>
+                <p id="materialGanador" class="metrica-valor">
+                    —
+                </p>
+            </div>
+            <div class="tarjeta-medicion">
+                <p class="metrica-label">
+                    Tu predicción
+                </p>
+                <p id="prediccionFinal" class="metrica-valor">
+                    —
+                </p>
+            </div>
+            <p id="resultadoPrediccion" class="conclusion"></p>
+            <div class="bloque-grafico">
+                <h3>Comparación entre materiales</h3>
+                <p class="texto-pequeno">
+                    Reducción relativa de amplitud RMS frente a la referencia.
+                </p>
+                <div class="lienzo">
+                    <canvas id="graficoComparacion"></canvas>
+                </div>
+            </div>
+            <p id="conclusionFinal" class="conclusion"></p>
+            <p class="advertencia">
+                Estos valores describen amplitudes digitales grabadas en este
+                montaje; no equivalen a aislamiento acústico certificado ni a
+                decibeles medidos con sonómetro.
+            </p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+/* LABSOUND */
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eaf6ff, #ffffff);
+    color: #1f3b5b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 14px;
+}
+.contenedor {
+    width: 100%;
+    max-width: 760px;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .10);
+    text-align: center;
+}
+.oculto { display: none !important; }
+h1 { font-size: clamp(39px, 8vw, 53px); margin: 5px 0 8px; }
+h2 { font-size: clamp(26px, 6vw, 33px); margin: 8px 0 12px; }
+h3 { font-size: 21px; margin: 0 0 15px; }
+p { font-size: 17px; color: #5f6b7a; line-height: 1.5; }
+.subtitulo { color: #257cba; font-size: 19px; font-weight: bold; margin: 6px 0 22px; }
+.icono-portada { font-size: 48px; }
+.etiqueta { color: #2f9ee5; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+.texto-pequeno { font-size: 13px; color: #708193; }
+button {
+    background: #2f9ee5;
+    color: white;
+    border: 0;
+    padding: 14px 23px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+    margin: 8px 5px;
+}
+button:hover { background: #1f7fbd; transform: translateY(-2px); }
+button:focus-visible { outline: 3px solid #185d91; outline-offset: 2px; }
+.boton-alternativo { background: #1980be; }
+.boton-secundario { background: transparent; color: #287cbb; border: 1px solid #bfdbed; }
+.boton-secundario:hover { background: #edf8ff; }
+.materiales { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 25px auto; }
+.boton-material {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: #f1f8fd;
+    color: #1f3b5b;
+    border: 2px solid #b9def4;
+    min-height: 108px;
+    font-size: 25px;
+}
+.boton-material:hover { background: #dff1fc; }
+.boton-material span { font-size: 16px; font-weight: bold; }
+.boton-material small { font-size: 12px; color: #647d90; }
+.contador { font-size: 24px; font-weight: bold; color: #2786c5; }
+.tarjeta-medicion { padding: 20px 14px; border: 1px solid #cfe5f5; border-radius: 15px; background: #f6fbff; }
+.metrica-label { font-size: 13px; text-transform: uppercase; letter-spacing: .4px; color: #547088; margin: 0 0 8px; }
+.metrica-valor { font-weight: bold; font-size: clamp(22px, 4vw, 29px); color: #1f3b5b; margin: 0; font-variant-numeric: tabular-nums; }
+.tarjeta-medicion .texto-pequeno { margin: 10px 0 0; }
+#pantallaEnsayos button { display: block; margin: 12px auto; }
+.estadisticas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 26px 0; }
+.bloque-grafico { border: 1px solid #e0edf6; padding: 18px; border-radius: 15px; margin: 22px 0; }
+.lienzo { position: relative; width: 100%; height: 270px; }
+.conclusion { padding: 16px; background: #f5faff; border-radius: 12px; font-size: 16px; }
+.advertencia { font-size: 13px; text-align: left; padding: 15px; background: #f7f9fb; border-left: 3px solid #a3b2c0; border-radius: 6px; }
+@media (max-width: 480px) {
+    .contenedor { padding: 26px 17px; }
+    .materiales { grid-template-columns: 1fr; }
+    .estadisticas { grid-template-columns: 1fr 1fr; gap: 7px; }
+    .tarjeta-medicion { padding: 15px 8px; }
+    .metrica-valor { font-size: 21px; }
+    button { font-size: 15px; }
+    .lienzo { height: 240px; }
+}
+/* TABLA DE RESULTADOS FINALES */
+
+.tabla-final {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.tabla-final h3 {
+    color: #1f3b5b;
+    margin-bottom: 15px;
+}
+
+.tabla-final table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f8fbfd;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tabla-final th,
+.tabla-final td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #d9e8f2;
+}
+
+.tabla-final th {
+    background-color: #eaf6ff;
+    color: #1f3b5b;
+    font-weight: bold;
+}
+
+.tabla-final td {
+    color: #5f6b7a;
+}
